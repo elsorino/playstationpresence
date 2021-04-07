@@ -18,23 +18,23 @@ oldpresence = ""
 while True:
     user_online_id = psnawp.user(online_id=PSNID)
     mainpresence = str(user_online_id.get_presence())
-    #print(mainpresence) #Uncomment this to get info about games inc. artwork/gameid
+    #print(mainpresence) #Uncomment this to get info about games inc. artwork/gameid links
     start_time = int(time.time())
     if 'offline' in mainpresence:
         print("User is offline, clearing status")
         RPC.clear()
     else: 
         if (oldpresence == mainpresence):
-            continue
+            pass
         else:
-            test = mainpresence.split("'")
-            if (len(test) == 19):
+            current = mainpresence.split("'")
+            if (len(current) == 19): #Length of this is 19 if user is not in a game
                 RPC.update(state="Idling", start=start_time, small_image="ps4", small_text=PSNID, large_image="ps4")
                 print("Idling")
             else:
-                gamename = test[27]
-                gameid = test[23]
+                gamename = current[27]
+                gameid = current[23]
                 RPC.update(state=gamename, start=start_time, small_image="ps4", small_text=PSNID, large_image=gameid.lower())
                 print("Playing %s" %gamename)
-    time.sleep(30) #Checks every 30 seconds to prevent ratelimiting
+    time.sleep(15) #Adjust this to be higher if you get ratelimited
     oldpresence = mainpresence
