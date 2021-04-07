@@ -36,5 +36,5 @@ while True:
                 gameid = test[23]
                 RPC.update(state=gamename, start=start_time, small_image="ps4", small_text=PSNID, large_image=gameid.lower())
                 print("Playing %s" %gamename)
-    time.sleep(15) #Checks every 15 seconds, this is how often RPC can be updated.
+    time.sleep(30) #Checks every 30 seconds to prevent ratelimiting
     oldpresence = mainpresence
