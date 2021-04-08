@@ -42,10 +42,14 @@ Currently supports PS4/PS5. PS5 support was added recently and may still have bu
 
 Vita/PS3 don't seem to work with the current PSN API used. See below for alternatives for those systems
 
+### TODO
+
+Better method to grab the game/gameID, very crappy method right now
+
 ### See also
 
 [Playstation Vita RPC](https://github.com/TheMightyV/vita-presence-the-server) - Discord RPC for the Playstation Vita written in C++(requires homebrew)
 
 [PS3-Discord](https://github.com/boozerboozeman/PS3-Discord) - Discord RPC for the PS3(requires homebrew)
 
-[PlayStationDiscord](https://github.com/Tustin/PlayStationDiscord) - Like this but made in Electron. Supports additional systems
+[PlayStationDiscord](https://github.com/Tustin/PlayStationDiscord) - Like this but written in Electron. Supports additional consoles
