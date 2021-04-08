@@ -1,4 +1,4 @@
-Discord RPC support for PS4 written in python
+Discord RPC to show what PS4/PS5 game you're playing
 
 ![Image Preview](https://i.imgur.com/O9qDYFf.png)
 
@@ -9,8 +9,8 @@ Discord RPC support for PS4 written in python
 3. Login into your [My PlayStation](https://my.playstation.com/) account.  
 4. In another tab, go to https://ca.account.sony.com/api/v1/ssocookie  
 5. Copy the npsso key into config.py
-6. Add PSN username to config.py
-   * It doesn't have to be your own PSNID
+6. Add PSNID to config.py
+   * You must have permission to view status, e.g your own account if private
 7. Install requirements with `pip install -r requirements.txt`
 8. Run the script with `python playstationpresence.py`
 
@@ -28,17 +28,19 @@ You can remove showing your PSNID on hover by removing `small_text=PSNID` in pla
 
 If you want to print additional info about the user presence to your terminal, uncomment line 21. Useful for downloading art assets.
 
-### Issues
+### Issues/limitations
 
-If you receive a ratelimiting error, edit the timeout on line 39 to be hire(e.g 30). The ratelimit is 100 calls every 15 minutes, so the default shouldn't timeout.
+If you receive a ratelimiting error, edit the timeout near the end of playstationpresence.py to be higher(e.g 30). Sony's ratelimit is 100 calls every 15 minutes, so the default shouldn't timeout.
+
+Non-games such as Netflix and suspended games will still show as playing the previous game.
 
 For any other issue, you can contact me on Discord at elso#3228 or open an issue
 
-### Support for other consoles
+### Supported systems
 
-PS5/PS3 support is something I'll look into
+Currently supports PS4/PS5. PS5 support was added recently and may still have bugs
 
-Not going to support the Vita since a superior solution already exists(see below)
+Vita/PS3 don't seem to work with the current PSN API used. See below for alternatives for those systems
 
 ### TODO
 
@@ -47,5 +49,7 @@ Better method to grab the game/gameID, very crappy method right now
 ### See also
 
 [Playstation Vita RPC](https://github.com/TheMightyV/vita-presence-the-server) - Discord RPC for the Playstation Vita written in C++(requires homebrew)
+
+[PS3-Discord](https://github.com/boozerboozeman/PS3-Discord) - Discord RPC for the PS3(requires homebrew)
 
 [PlayStationDiscord](https://github.com/Tustin/PlayStationDiscord) - Like this but written in Electron. Supports additional consoles
