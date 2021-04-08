@@ -9,7 +9,7 @@ Discord RPC support for PS4 written in python
 3. Login into your [My PlayStation](https://my.playstation.com/) account.  
 4. In another tab, go to https://ca.account.sony.com/api/v1/ssocookie  
 5. Copy the npsso key into config.py
-6. Add PSN username to config.py
+6. Add PSNID to config.py
    * It doesn't have to be your own PSNID
 7. Install requirements with `pip install -r requirements.txt`
 8. Run the script with `python playstationpresence.py`
@@ -36,7 +36,9 @@ For any other issue, you can contact me on Discord at elso#3228 or open an issue
 
 ### Support for other consoles
 
-PS5/PS3 support is something I'll look into
+PS5 support is being worked on
+
+PS3 support might happen
 
 Not going to support the Vita since a superior solution already exists(see below)
 
