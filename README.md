@@ -40,6 +40,10 @@ PS5/PS3 support is something I'll look into
 
 Not going to support the Vita since a superior solution already exists(see below)
 
+### TODO
+
+Better method to grab the game/gameID, very crappy method right now
+
 ### See also
 
 [Playstation Vita RPC](https://github.com/TheMightyV/vita-presence-the-server) - Discord RPC for the Playstation Vita written in C++(requires homebrew)
