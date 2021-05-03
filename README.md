@@ -5,7 +5,7 @@ Discord RPC to show what PS4/PS5 game you're playing
 ## Setup
 
 1. Download with `git clone https://github.com/elsorino/playstationpresence`
-2. Copy config.example.py to config.py
+2. Copy config.example.ini to config.ini
 3. Login into your [My PlayStation](https://my.playstation.com/) account.  
 4. In another tab, go to https://ca.account.sony.com/api/v1/ssocookie  
 5. Copy the npsso key into config.py
