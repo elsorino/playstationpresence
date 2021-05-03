@@ -46,7 +46,7 @@ while True:
                 discordrpc("829124881324048404")
             current = mainpresence.split("'")
             if (len(current) == 19): #Length of this is 19 if user is not in a game
-                rpc.update(state="Idling", start=start_time, small_image=system, small_text=system, large_image=system, large_text="Homescreen")
+                rpc.update(state="Idling", start=start_time, small_image=system, small_text=PSNID, large_image=system, large_text="Homescreen")
                 print("Idling")
             else:
                 if 'gameStatus' in mainpresence: #Not every game supports gameStatus
@@ -56,7 +56,7 @@ while True:
                 gameid = current[23]
                 gamename = current[27]
                 #gamestatus = current[]
-                rpc.update(state=gamename, start=start_time, small_image=system, small_text=system, large_image=gameid.lower(), large_text=gametext)
+                rpc.update(state=gamename, start=start_time, small_image=system, small_text=PSNID, large_image=gameid.lower(), large_text=gametext)
                 print("Playing %s" %gamename)
     time.sleep(15) #Adjust this to be higher if you get ratelimited
     oldpresence = mainpresence
