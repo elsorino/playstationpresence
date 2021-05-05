@@ -2,4 +2,6 @@
 
 .vscode/
 
-config.ini
+playstationpresence.ini
+
+build/

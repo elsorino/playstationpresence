@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from psnawp_api import psnawp
 from pypresence import Presence
 import configparser
@@ -11,7 +12,7 @@ def discordrpc(appid):
     rpc.connect()
 
 config = configparser.ConfigParser()
-config.read('config.ini')
+config.read('playstationpresence.ini')
 npsso = config['main']['npsso']
 PSNID = config['main']['PSNID']
 psnawp = psnawp.PSNAWP(npsso)
@@ -25,7 +26,7 @@ rpc.connect()
 while True:
     user_online_id = psnawp.user(online_id=PSNID)
     mainpresence = str(user_online_id.get_presence())
-    print(mainpresence) #Uncomment this to get info about games inc. artwork/gameid links
+    #print(mainpresence) #Uncomment this to get info about games inc. artwork/gameid links
     start_time = int(time.time())
     if 'offline' in mainpresence:
         print("User is offline, clearing status")

@@ -4,12 +4,22 @@ Discord RPC to show what PS4/PS5 game you're playing
 
 ## Setup
 
+### Windows method
+1. Download the latest exe/ini files in [releases](https://github.com/elsorino/playstationpresence/releases)
+2. Login into your [My PlayStation](https://my.playstation.com/) account.
+3. In another tab, go to https://ca.account.sony.com/api/v1/ssocookie
+4. Copy the npsso key into playstationpresence.ini
+5. Add PSNID to playstationpresence.ini
+   * You must have permission to view status, e.g your own account if private
+6. Run the exe with playstationpresence.ini in the same folder
+
+### Using Python
 1. Download with `git clone https://github.com/elsorino/playstationpresence`
-2. Copy config.example.ini to config.ini
+2. Copy playstationpresence.example.ini to playstationpresence.ini
 3. Login into your [My PlayStation](https://my.playstation.com/) account.  
 4. In another tab, go to https://ca.account.sony.com/api/v1/ssocookie  
-5. Copy the npsso key into config.py
-6. Add PSNID to config.py
+5. Copy the npsso key into playstationpresence.ini
+6. Add PSNID to playstationpresence.ini
    * You must have permission to view status, e.g your own account if private
 7. Install requirements with `pip install -r requirements.txt`
 8. Run the script with `python playstationpresence.py`
@@ -22,17 +32,9 @@ The script works by using [PSNAWP](https://github.com/isFakeAccount/psnawp) to c
 
 If a game is supported, it will have their icon shown while playing. A list of supported games is available at [the games repository](https://github.com/elsorino/playstationpresence-games)
 
-### Customization
-
-You can remove showing your PSNID on hover by removing `small_text=PSNID` in playstationpresence.py(or replacing PSNID with whatever text you want)
-
-If you want to print additional info about the user presence to your terminal, uncomment line 21. Useful for downloading art assets.
-
 ### Issues/limitations
 
-If you receive a ratelimiting error, edit the timeout near the end of playstationpresence.py to be higher(e.g 30). Sony's ratelimit is 100 calls every 15 minutes, so the default shouldn't timeout.
-
-Non-games such as Netflix and suspended games will still show as playing the previous game.
+Non-games such as Netflix and suspended games will still show as playing the previous game. This is an issue with the PSN API and can't be fixed.
 
 For any other issue, you can contact me on Discord at elso#3228 or open an issue
 
