@@ -36,7 +36,7 @@ If a game is supported, it will have their icon shown while playing. A list of s
 
 Non-games such as Netflix and suspended games will still show as playing the previous game. This is an issue with the PSN API and can't be fixed.
 
-For any other issue, you can contact me on Discord at elso#3228 or open an issue
+For any other issue, you can contact me on Discord at elso#0442 or open an issue
 
 ### Supported systems
 
