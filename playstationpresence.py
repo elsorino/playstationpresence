@@ -8,19 +8,24 @@ import ast
 def discordrpc(appid):
     global rpc
     rpc.clear()
-    rpc = Presence(appid, pipe=0) #PS4 games on PS5
+    rpc = Presence(appid, pipe=0)
     rpc.connect()
 
 config = configparser.ConfigParser()
 config.read('playstationpresence.ini')
 npsso = config['main']['npsso']
 PSNID = config['main']['PSNID']
-psnawp = psnawp.PSNAWP(npsso)
+gameart = config['main']['gameArt']
 
+PS4OnPS5 = config['appids']['PS4OnPS5']
+PS5 = config['appids']['PS5']
+PS4 = config['appids']['PS4']
+
+psnawp = psnawp.PSNAWP(npsso)
 start_time = int(time.time())
 oldpresence = ""
 #Initial usage, used to clear status if user is offline
-rpc = Presence("829124881324048404",pipe=0)
+rpc = Presence(PS4,pipe=0)
 rpc.connect()
 
 while True:
@@ -39,12 +44,12 @@ while True:
             if 'PS5' in mainpresence:
                 system = "ps5"
                 if 'CUSA' in mainpresence:
-                    discordrpc("829746683835187220") #PS4 games on PS5
+                    discordrpc(PS4OnPS5) #PS4 games on PS5
                 else:
-                    discordrpc("829547127809638451") #PS5 games
+                    discordrpc(PS5) #PS5 games
             else:
                 system = "ps4"
-                discordrpc("829124881324048404")
+                discordrpc(PS4)
             current = mainpresence.split("'")
             if (len(current) == 19): #Length of this is 19 if user is not in a game
                 rpc.update(state="Idling", start=start_time, small_image=system, small_text=PSNID, large_image=system, large_text="Homescreen")
@@ -54,7 +59,10 @@ while True:
                     gametext = current[39]
                 else:
                     gametext = current[27]
-                gameid = current[23]
+                if gameart == "yes":
+                    gameid = current[23]
+                else:
+                    gameid = system
                 gamename = current[27]
                 #gamestatus = current[]
                 rpc.update(state=gamename, start=start_time, small_image=system, small_text=PSNID, large_image=gameid.lower(), large_text=gametext)
