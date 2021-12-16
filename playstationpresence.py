@@ -17,9 +17,9 @@ npsso = config['main']['npsso']
 PSNID = config['main']['PSNID']
 gameart = config['main']['gameArt']
 
-PS4OnPS5 = config['appids']['PS4OnPS5']
-PS5 = config['appids']['PS5']
-PS4 = config['appids']['PS4']
+PS4OnPS5 = config['tokens']['PS4OnPS5']
+PS5 = config['tokens']['PS5']
+PS4 = config['tokens']['PS4']
 
 psnawp = psnawp.PSNAWP(npsso)
 start_time = int(time.time())
