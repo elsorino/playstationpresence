@@ -1,3 +1,4 @@
+# No longer needed since Discord recently added official support for Playstation Network
 Discord RPC to show what PS4/PS5 game you're playing
 
 ![Image Preview](https://i.imgur.com/O9qDYFf.png)
